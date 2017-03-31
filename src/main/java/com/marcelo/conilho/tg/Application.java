@@ -3,6 +3,9 @@ package com.marcelo.conilho.tg;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
@@ -11,6 +14,9 @@ import java.io.FileNotFoundException;
 
 import static com.google.common.io.Resources.getResource;
 
+@Configuration
+@ComponentScan
+@EnableAutoConfiguration
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 
@@ -23,4 +29,8 @@ public class Application extends SpringBootServletInitializer {
 				.build();
 		FirebaseApp.initializeApp(options);
 	}
+	 @Override
+    	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Application.class);
+    }
 }
