@@ -26,7 +26,7 @@ import java.util.Collections;
  * Created by marce on 05/04/2017.
  */
 @Configuration
-@EnableMongoRepositories(basePackages = { "com.br1337.promo.repository" })
+@EnableMongoRepositories(basePackages = { "com.marcelo.conilho.tg.repository" })
 public class MongoDbConfig extends AbstractMongoConfiguration {
 
     /*@Value("${com.br1337.promo.mongo.host}")
