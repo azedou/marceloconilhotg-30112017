@@ -20,12 +20,12 @@ public class StudantController {
     @Autowired
     StudantRepository studantRepository;
 
-    @RequestMapping("/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value="/all", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<Studant> getAll() {
         return studantRepository.findAll();
     }
-    
+
     @RequestMapping("{ra}")
     public Studant getStudant(@PathVariable("ra") String ra){
         return studantRepository.findOne(ra);
