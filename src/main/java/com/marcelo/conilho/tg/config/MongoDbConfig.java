@@ -25,7 +25,7 @@ import com.mongodb.ServerAddress;
 public class MongoDbConfig extends AbstractMongoConfiguration {
 
          @Autowired
-         protected MongoClient client;
+         MongoClient client;
 
          @Override
          protected String getDatabaseName() {
