@@ -28,7 +28,7 @@ public class MongoDbConfig extends AbstractMongoConfiguration {
          MongoClient client;
 
          @Override
-         protected String getDatabaseName() {
+         public String getDatabaseName() {
                  return "mongodbtg";
          }
 
