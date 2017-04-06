@@ -39,18 +39,18 @@ public class MongoDbConfig extends AbstractMongoConfiguration {
 
          @Override
          protected String getDatabaseName() {
-                 return database;
-         }
-
-         @Bean
-         public MongoClient getClient() throws UnknownHostException {
-                 return new MongoClient(Collections.singletonList(new ServerAddress(System.getenv("OPENSHIFT_MONGODB_DB_HOST"), System.getenv("OPENSHIFT_MONGODB_DB_PORT"))),
-                 Collections.singletonList(MongoCredential.createCredential(System.getenv("OPENSHIFT_MONGODB_DB_USERNAME"), "mongodbtg", System.getenv("OPENSHIFT_MONGODB_DB_PASSWORD").toCharArray())));
+                 return "mongodbtg";
          }
 
          @Override
          public Mongo mongo() throws Exception {
                  return client;
+         }
+         
+         @Bean
+         public MongoClient getClient() throws UnknownHostException {
+                 return new MongoClient(Collections.singletonList(new ServerAddress(System.getenv("OPENSHIFT_MONGODB_DB_HOST"), System.getenv("OPENSHIFT_MONGODB_DB_PORT"))),
+                 Collections.singletonList(MongoCredential.createCredential(System.getenv("OPENSHIFT_MONGODB_DB_USERNAME"), "mongodbtg", System.getenv("OPENSHIFT_MONGODB_DB_PASSWORD").toCharArray())));
          }
 
          @Bean
