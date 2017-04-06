@@ -26,6 +26,13 @@ public class StudantController {
         return studantRepository.findAll();
     }
 
+    @RequestMapping(value="/one", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String addOneStutent() {
+        studantRepository.save(new Studant(123456, "Marcelo"));
+        return "ta uma olhada lá";
+    }
+
     @RequestMapping("{ra}")
     public Studant getStudant(@PathVariable("ra") String ra){
         return studantRepository.findOne(ra);
