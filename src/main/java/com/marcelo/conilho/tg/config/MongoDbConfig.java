@@ -29,7 +29,7 @@ public class MongoDbConfig extends AbstractMongoConfiguration {
 
          @Value("${spring.data.mongodb.host}")
          private String host;
-         @Value("${spring.data.mongodb.username}")
+         @Value("${spring.data.mongodb.user}")
          private String user;
          @Value("${spring.data.mongodb.password}")
          private String password;
@@ -49,6 +49,7 @@ public class MongoDbConfig extends AbstractMongoConfiguration {
 
          @Bean
          public MongoClient mongoClient() throws Exception {
+                  /*new MongoClient(new MongoClientURI( "mongodb://app_user:bestPo55word3v3r@localhost/data" ));*/
                  return new MongoClient(Collections.singletonList(new ServerAddress(host, port)),
                  Collections.singletonList(MongoCredential.createCredential(user,database, password.toCharArray())));
          }
