@@ -26,7 +26,7 @@ public class MongoDbConfig extends AbstractMongoConfiguration {
          
          protected String host =System.getenv("OPENSHIFT_MONGODB_DB_HOST");
 
-         protected int port =System.getenv("OPENSHIFT_MONGODB_DB_PORT");
+         protected String port =System.getenv("OPENSHIFT_MONGODB_DB_PORT");
          
          protected String user =System.getenv("OPENSHIFT_MONGODB_DB_USERNAME");
 
