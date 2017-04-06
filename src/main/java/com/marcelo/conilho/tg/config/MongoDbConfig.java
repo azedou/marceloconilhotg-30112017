@@ -32,6 +32,7 @@ public class MongoDbConfig extends AbstractMongoConfiguration {
                  return "mongodbtg";
          }
 
+         @Bean
          @Override
          public Mongo mongo() throws Exception {
                  return new MongoClient(Collections.singletonList(new ServerAddress(System.getenv("OPENSHIFT_MONGODB_DB_HOST"), Integer.valueOf(System.getenv("OPENSHIFT_MONGODB_DB_PORT")))),
