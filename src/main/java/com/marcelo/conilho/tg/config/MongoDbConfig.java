@@ -29,7 +29,7 @@ public class MongoDbConfig extends AbstractMongoConfiguration {
 
          @Value("${spring.data.mongodb.host}")
          private String host;
-         @Value("${spring.data.mongodb.user}")
+         @Value("${spring.data.mongodb.username}")
          private String user;
          @Value("${spring.data.mongodb.password}")
          private String password;
