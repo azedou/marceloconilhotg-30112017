@@ -23,18 +23,16 @@ import com.mongodb.ServerAddress;
 @Configuration
 @EnableMongoRepositories(basePackages = { "com.marcelo.conilho.tg.repository" })
 public class MongoDbConfig extends AbstractMongoConfiguration {
+         
+         protected String host =System.getenv("OPENSHIFT_MONGODB_DB_HOST");
 
-         @Value(System.getenv("OPENSHIFT_MONGODB_DB_HOST"))
-         protected String host;
-         @Value(System.getenv("OPENSHIFT_MONGODB_DB_USERNAME"))
-         protected String user;
-         @Value(System.getenv("OPENSHIFT_MONGODB_DB_PASSWORD"))
-         protected String password;
-         @Value("mongodbtg")
-         protected String database;
+         protected int port =System.getenv("OPENSHIFT_MONGODB_DB_PORT");
+         
+         protected String user =System.getenv("OPENSHIFT_MONGODB_DB_USERNAME");
 
-         @Value(System.getenv("OPENSHIFT_MONGODB_DB_PORT"))
-         protected int port;
+         protected String password =System.getenv("OPENSHIFT_MONGODB_DB_PASSWORD");
+         
+         protected String database ="mongodbtg";
 
          @Autowired
          protected MongoClient client;
