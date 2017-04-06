@@ -14,6 +14,7 @@ import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.context.annotation.PropertySource;
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
@@ -27,16 +28,15 @@ import com.mongodb.ServerAddress;
 public class MongoDbConfig extends AbstractMongoConfiguration {
 
          @Value("${spring.data.mongodb.host}")
-         protected String host;
+         private String host;
          @Value("${spring.data.mongodb.user}")
-         protected String user;
+         private String user;
          @Value("${spring.data.mongodb.password}")
-         protected String password;
+         private String password;
          @Value("${spring.data.mongodb.database}")
-         protected String database;
-
+         private String database;
          @Value("${spring.data.mongodb.port}")
-         protected int port;
+         private int port;
 
 
          @Autowired
