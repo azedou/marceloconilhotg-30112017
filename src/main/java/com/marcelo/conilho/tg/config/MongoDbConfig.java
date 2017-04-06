@@ -20,6 +20,8 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
 
+@PropertySource("classpath:/application.properties}")
+
 @Configuration
 @EnableMongoRepositories(basePackages = { "com.marcelo.conilho.tg.repository" })
 public class MongoDbConfig extends AbstractMongoConfiguration {
