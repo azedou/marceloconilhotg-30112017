@@ -30,7 +30,7 @@ public class MongoDbConfig extends AbstractMongoConfiguration {
          protected String user;
          @Value(System.getenv("OPENSHIFT_MONGODB_DB_PASSWORD"))
          protected String password;
-         @Value("mongodbtg"))
+         @Value("mongodbtg")
          protected String database;
 
          @Value(System.getenv("OPENSHIFT_MONGODB_DB_PORT"))
