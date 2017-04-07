@@ -9,7 +9,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 @Configuration
-@ComponentScan(basePackages={"com.marcelo.conilho.tg.config"})
+@ComponentScan(basePackages={"com.marcelo.conilho.tg"})
 @EnableAutoConfiguration
 public class Application extends SpringBootServletInitializer {
 
