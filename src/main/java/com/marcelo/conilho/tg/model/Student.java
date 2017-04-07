@@ -6,28 +6,28 @@ import org.springframework.data.mongodb.core.mapping.Document;
 /**
  * Created by marce on 05/04/2017.
  */
-@Document(collection = "studants")
-public class Studant {
+@Document(collection = "students")
+public class Student {
     @Id
     private int id;
 
-    int ra;
+    String ra;
 
     String name;
 
-    public Studant() {
+    public Student() {
     }
 
-    public Studant(int ra, String name) {
+    public Student(String ra, String name) {
         this.ra = ra;
         this.name = name;
     }
 
-    public int getRa() {
+    public String getRa() {
         return ra;
     }
 
-    public void setRa(int ra) {
+    public void setRa(String ra) {
         this.ra = ra;
     }
 

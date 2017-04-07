@@ -1,7 +1,7 @@
 package com.marcelo.conilho.tg.controller;
 
-import com.marcelo.conilho.tg.model.Studant;
-import com.marcelo.conilho.tg.repository.StudantRepository;
+import com.marcelo.conilho.tg.model.Student;
+import com.marcelo.conilho.tg.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,26 +15,26 @@ import java.util.List;
  * Created by marce on 05/04/2017.
  */
 @RestController
-public class StudantController {
+public class StudentController {
 
     @Autowired
-    StudantRepository studantRepository;
+    StudentRepository studentRepository;
 
-    @RequestMapping(value="/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value="/allStudents", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public List<Studant> getAll() {
-        return studantRepository.findAll();
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
     }
 
-    @RequestMapping(value="/one", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value="/addStudent{ra}{name}")
     @ResponseBody
-    public String addOneStutent() {
-        studantRepository.save(new Studant(123456, "Marcelo"));
+    public String addOneStutent(@PathVariable("ra") String ra, @PathVariable("name") String name) {
+        studentRepository.save(new Student(ra, name));
         return "ta uma olhada lá";
     }
 
-    @RequestMapping("{ra}")
-    public Studant getStudant(@PathVariable("ra") String ra){
-        return studantRepository.findOne(ra);
+    @RequestMapping("getStudent{ra}")
+    public Student getStudant(@PathVariable("ra") String ra){
+        return studentRepository.findOne(ra);
     }
 }

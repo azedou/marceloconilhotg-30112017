@@ -1,6 +1,6 @@
 package com.marcelo.conilho.tg.repository;
 
-import com.marcelo.conilho.tg.model.Studant;
+import com.marcelo.conilho.tg.model.Student;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
@@ -8,11 +8,11 @@ import java.util.List;
 /**
  * Created by marce on 05/04/2017.
  */
-public interface StudantRepository extends MongoRepository<Studant, String>{
+public interface StudentRepository extends MongoRepository<Student, String>{
 
     @Override
-    List<Studant> findAll();
+    List<Student> findAll();
 
     @Override
-    Studant findOne(String ra);
+    Student findOne(String ra);
 }
