@@ -47,7 +47,6 @@ public class MongoDbConfig extends AbstractMongoConfiguration {
 
          @Bean
          public MongoClient mongoClient() throws Exception {
-                  /*new MongoClient(new MongoClientURI( "mongodb://app_user:bestPo55word3v3r@localhost/data" ));*/
                  return new MongoClient(Collections.singletonList(new ServerAddress(host, port)),
                  Collections.singletonList(MongoCredential.createCredential(user,database, password.toCharArray())));
          }
