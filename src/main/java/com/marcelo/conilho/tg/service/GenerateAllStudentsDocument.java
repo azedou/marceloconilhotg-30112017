@@ -43,7 +43,8 @@ public class GenerateAllStudentsDocument {
         File pdf = new File("C:\\Users\\marce\\Desktop\\TG2\\tg2repo\\src\\main\\resources\\output2.pdf");
         XWPFDocument docToConvert = new XWPFDocument(OPCPackage.openOrCreate(docx));
         FileOutputStream fos = new FileOutputStream(pdf);
-        PdfConverter.getInstance().convert(docToConvert, fos , PdfOptions.create() );
+        PdfConverter.getInstance().convert(docToConvert, fos , PdfOptions.create());
+        fos.close();
 
     }
 }
