@@ -16,6 +16,7 @@ import org.springframework.context.annotation.PropertySource;
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
 
@@ -47,9 +48,9 @@ public class MongoDbConfig extends AbstractMongoConfiguration {
 
          @Bean
          public MongoClient mongoClient() throws Exception {
-                  /*new MongoClient(new MongoClientURI( "mongodb://app_user:bestPo55word3v3r@localhost/data" ));*/
-                 return new MongoClient(Collections.singletonList(new ServerAddress(host, port)),
-                 Collections.singletonList(MongoCredential.createCredential(user,database, password.toCharArray())));
+                 return new MongoClient(new MongoClientURI( "mongodb://marceloconilhotg:Senhatest1@ds021346.mlab.com:21346/marceloconilhotg" ));
+                 /*return new MongoClient(Collections.singletonList(new ServerAddress(host, port)),
+                 Collections.singletonList(MongoCredential.createCredential(user,database, password.toCharArray())));*/
          }
          
          @Override
