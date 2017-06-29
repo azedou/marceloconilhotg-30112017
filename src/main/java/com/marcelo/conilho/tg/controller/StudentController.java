@@ -40,7 +40,7 @@ public class StudentController {
 
     @RequestMapping("/editDOCX")
     public String getStudant() throws Exception {
-        generateAllStudentsDocument.replaceName("JOÃO DA SILVA");
+        generateAllStudentsDocument.replaceNameWithVelocity("Marcelo Conilho");
             return "deu bom ";
     }
 }
