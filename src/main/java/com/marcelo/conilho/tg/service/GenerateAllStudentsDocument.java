@@ -56,16 +56,19 @@ public class GenerateAllStudentsDocument {
         
         // Compose Paragraph
         System.out.println();
-        Image fox = ImageIO.read(cl.getResource("logo.png"));
-        Paragraph p = new Paragraph("The quick brown ")
-                .add(fox);
- 
+        Image logo = new Image(ImageDataFactory.create(cl.getResource("logo.png")));
+        Image footer = new Image(ImageDataFactory.create(cl.getResource("footer.png")));
+        Paragraph plogo = new Paragraph().add(logo);
+        document.add(plogo);
+
         //Add paragraph to the TITLE
         document.add(new Paragraph(ConstantsCertificadoApresentacao.TITULO).setFont(font));
         
         //Add paragraph to the BODY
         document.add(new Paragraph(ConstantsCertificadoApresentacao.BEFORE_NAME+name+ConstantsCertificadoApresentacao.AFTER_NAME).setFont(font));
- 
+
+        Paragraph pfooter = new Paragraph().add(footer);
+        document.add(pfooter);
         //Close document
         document.close();
     }
