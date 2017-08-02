@@ -47,7 +47,7 @@ public class StudentController {
     @RequestMapping("/editDOCX")
     public HttpServletResponse getStudant(HttpServletResponse response) throws Exception {
         generateAllStudentsDocument.createPDFwithItext("Marcelo Conilho");
-        byte[] contents = Files.readAllBytes(new File("C:\\Users\\marce\\Desktop\\TG2\\tg2repo\\TESTPDF.pdf").toPath());
+        byte[] contents = Files.readAllBytes(new File("TESTPDF.pdf").toPath());
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.parseMediaType("application/pdf"));
         String filename = "output.pdf";
