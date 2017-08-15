@@ -6,7 +6,7 @@
 	<groupId>com.marcelo.conilho.tg</groupId>
 	<artifactId>application</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>application</name>
 	<description>Demo project for Spring Boot</description>
@@ -18,10 +18,14 @@
 	</parent>
 
 	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<springframework.version>4.0.6.RELEASE</springframework.version>
 		<java.version>1.8</java.version>
+		<failOnMissingWebXml>false</failOnMissingWebXml> <!-- REQUIRED -->
+    		<appengine.maven.plugin>1.3.1</appengine.maven.plugin>
 	</properties>
 
 	<dependencies>
@@ -162,6 +166,22 @@
 					<warName>ROOT</warName>
 				</configuration>
 			</plugin>
+			<plugin>
+     				<groupId>org.eclipse.jetty</groupId>
+     				<artifactId>jetty-maven-plugin</artifactId>
+     				<version>9.3.7.v20160115</version>
+   			</plugin>
+			<plugin>
+        			<groupId>com.google.cloud.tools</groupId>
+        			<artifactId>appengine-maven-plugin</artifactId>
+        			<version>${appengine.maven.plugin}</version>
+        			<configuration>
+          			<!-- deploy configuration -->
+				<!--
+					<deploy.promote>true</deploy.promote><!~~ DEFAULT value ~~>
+          				<deploy.stopPreviousVersion>true</deploy.stopPreviousVersion><!~~ DEFAULT value ~~> -->
+        </configuration>
+      </plugin>
 		</plugins>
 	</build>
 
