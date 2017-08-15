@@ -3,12 +3,9 @@ package com.marcelo.conilho.tg.controller;
 import com.marcelo.conilho.tg.model.Student;
 import com.marcelo.conilho.tg.repository.StudentRepository;
 import com.marcelo.conilho.tg.service.GenerateAllStudentsDocument;
-import org.apache.poi.util.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
