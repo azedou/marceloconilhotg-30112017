@@ -1,7 +1,9 @@
+// ./src/reducers/index.js
 import { combineReducers } from 'redux';
+import books from './bookReducers';
+import students from './studentReducers';
 
-const rootReducer = combineReducers({
-  state: (state = {}) => state
+export default combineReducers({
+  books: books,
+  students: students,
 });
-
-export default rootReducer;
