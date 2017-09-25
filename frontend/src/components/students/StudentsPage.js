@@ -2,33 +2,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as studentsActions from '../../actions/studentsActions';
+import StudentsList from './StudentsList';
 
 class Student extends React.Component{
   constructor(props){
     super(props);
   }
 
-  componentDidMount(){
-      console.log("DidMount");
-      
-      
-  }
   componentWillMount(){
-      console.log("will mount");
       this.props.fetchStudents();
   }
 
   render(){
-      console.log("RENDER METHOD");
-    console.log(this.props);
-      
     return(
       <div>
         <h3>Students</h3>
           <div>
-            {this.props.students.map((item, index) => (
-              <li id={index}>{item.name}</li>
-            ))}
+            <StudentsList students={this.props.students}/>
           </div>
         </div>
     );

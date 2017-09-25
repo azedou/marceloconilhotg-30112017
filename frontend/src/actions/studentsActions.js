@@ -7,16 +7,16 @@ import {
     } from './actionType';
 
 // Sync Action
-export const fetchStudentsSuccess = (books) => {
+export const fetchStudentsSuccess = (students) => {
   return {
     type: 'LOAD_ALL_STUDENTS_SUCCESS',
-    books
+    students
   }
 };
 
 //Async Action
 export const fetchStudents = () => {
-  const url = 'http://marceloconilhotg2.azurewebsites.net/allStudents';
+  const url = 'https://c41c9904-443a-45af-9eb9-8eee688f64ba.mock.pstmn.io/allStudents';
   // Returns a dispatcher function
   // that dispatches an action at a later time
   return (dispatch) => {

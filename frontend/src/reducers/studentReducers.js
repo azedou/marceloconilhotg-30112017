@@ -5,10 +5,9 @@ import {
 } from '../actions/actionType';
 
 export default (state = [], action) => {
-  console.log("entrou no reducer");
   switch (action.type) {
     case 'LOAD_ALL_STUDENTS_SUCCESS':
-          return action.books;
+          return action.students;
     default:
           return state;
   }
