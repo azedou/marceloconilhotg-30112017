@@ -11,10 +11,11 @@ class Student extends React.Component{
   componentDidMount(){
       console.log("DidMount");
       
+      
   }
   componentWillMount(){
       console.log("will mount");
-      this.props.loadAllStudents();
+      this.props.fetchStudents();
   }
 
   render(){
@@ -24,9 +25,11 @@ class Student extends React.Component{
     return(
       <div>
         <h3>Students</h3>
-        <div>
-          <h3>{this.props.students[0]=="undefined"? "LOADING": JSON.stringify(this.props.students)}</h3>
-        </div>
+          <div>
+            {this.props.students.map((item, index) => (
+              <li id={index}>{item.name}</li>
+            ))}
+          </div>
         </div>
     );
   }
@@ -43,8 +46,8 @@ const mapStateToProps = (state, ownProps) => {
 // Maps actions to props
 const mapDispatchToProps = (dispatch) => {
   return {
-  // You can now say this.props.loadAllStudents
-    loadAllStudents: students => dispatch(studentsActions.loadAllStudents())
+  // You can now say this.props.fetchStudents
+    fetchStudents: students => dispatch(studentsActions.fetchStudents())
   }
 };
 

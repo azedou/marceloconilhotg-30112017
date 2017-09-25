@@ -33,6 +33,7 @@
     "react-redux": "^4.3.0",
     "react-router": "^2.0.1",
     "redux": "^3.0.4",
-    "redux-react-router": "^1.0.0-beta3"
+    "redux-react-router": "^1.0.0-beta3",
+    "redux-thunk": "^2.2.0"
   }
 }

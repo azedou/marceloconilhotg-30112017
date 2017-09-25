@@ -1,16 +1,14 @@
 import {
   LOAD_ALL_STUDENTS,
-  LOAD_ALL_STUDENTS_ERROR
+  LOAD_ALL_STUDENTS_ERROR,
+  LOAD_ALL_STUDENTS_SUCCESS
 } from '../actions/actionType';
 
 export default (state = [], action) => {
-  switch (action.type){
-    case LOAD_ALL_STUDENTS:(state, action)=>{
-      console.log("entrou no reducer");
-      state = {...state}
-      state.students = action.payload;
-      return state;
-    }
+  console.log("entrou no reducer");
+  switch (action.type) {
+    case 'LOAD_ALL_STUDENTS_SUCCESS':
+          return action.books;
     default:
           return state;
   }
