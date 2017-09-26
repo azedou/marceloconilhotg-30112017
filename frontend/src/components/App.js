@@ -12,6 +12,7 @@ const App = (props) => {
           </div>
           <div >
             <ul >
+              <li><Link to="/">Home</Link></li>
               <li><Link to="/students">/students</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/books">Book</Link></li>

@@ -1,6 +1,5 @@
 import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import { Col, Panel } from 'react-bootstrap';
 
 class StudentsList extends React.Component{
   constructor(props){
@@ -9,10 +8,10 @@ class StudentsList extends React.Component{
   
   render(){
     return(
-          <BootstrapTable data={ this.props.students } version='4'>
-            <TableHeaderColumn dataField='ra' isKey>RA</TableHeaderColumn>
-            <TableHeaderColumn dataField='name'>Name</TableHeaderColumn>
-            <TableHeaderColumn dataField='email'>E-Mail</TableHeaderColumn>
+          <BootstrapTable data={ this.props.students } striped hover condensed version='4'>
+            <TableHeaderColumn dataField='ra' dataSort={ true } isKey >RA</TableHeaderColumn>
+            <TableHeaderColumn dataField='name' dataSort={ true } >Name</TableHeaderColumn>
+            <TableHeaderColumn dataField='email' dataSort={ true } >E-Mail</TableHeaderColumn>
         </BootstrapTable>
     );
   }
