@@ -6,6 +6,8 @@ const PATHS = {
   build: path.join(__dirname, 'target', 'classes', 'META-INF', 'resources', 'webjars', packageJSON.name, packageJSON.version)
 };
 
+
+
 module.exports = {
     entry: [
         './src/index.js'
@@ -26,5 +28,12 @@ module.exports = {
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+            }
+        })
+    ]
 };

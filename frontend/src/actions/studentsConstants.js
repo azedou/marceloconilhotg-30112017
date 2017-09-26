@@ -1,0 +1,1 @@
+export const ALL_STUDENTS_ENDPOINT = '/allStudents'
