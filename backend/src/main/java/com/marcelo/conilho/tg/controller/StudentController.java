@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.nio.file.Files;
 import java.util.List;
@@ -30,19 +31,30 @@ public class StudentController {
     }
 
     @RequestMapping(value="/addStudent", method = RequestMethod.POST)
-    public String addOneStutent(@ModelAttribute Student s) {
-        System.out.println(s.toString());
+    public String addOneStutent(@RequestBody Student s) {
+        System.out.println(s);
         studentRepository.save(s);
         return "da uma olhada lá" + s.toString();
     }
 
-    @RequestMapping("/getStudent")
+    @RequestMapping(value="/getStudent")
     public Student getStudant(@RequestParam("ra") String ra){
         return studentRepository.findOne(ra);
     }
+    
+    @DeleteMapping(value="/deleteStudent")
+    public void deleteStudant(@RequestParam("ra") String ra){
+        Student s = studentRepository.findOne(ra);
+        try {
+            studentRepository.delete(s);
+        }catch(Exception err){
+            System.out.println(err);
+        }
+    }
 
-    @RequestMapping("/editDOCX")
-    public HttpServletResponse getStudant(HttpServletResponse response) throws Exception {
+    @RequestMapping(value="/editDOCX", method = RequestMethod.POST)
+    public HttpServletResponse getStudant(HttpServletResponse response, HttpServletRequest request,
+                                          @RequestBody Student s) throws Exception {
         generateAllStudentsDocument.createPDFwithItext("Marcelo Conilho");
         byte[] contents = Files.readAllBytes(new File("TESTPDF.pdf").toPath());
         HttpHeaders headers = new HttpHeaders();
