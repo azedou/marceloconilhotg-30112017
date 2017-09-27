@@ -34,7 +34,7 @@ public class StudentController {
     public String addOneStutent(@RequestBody Student s) {
         System.out.println(s);
         studentRepository.save(s);
-        return "da uma olhada lá" + s.toString();
+        return "da uma olhada lá " + s.toString();
     }
 
     @RequestMapping(value="/getStudent")

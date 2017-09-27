@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as studentsActions from '../../actions/studentsActions';
 import StudentsList from './StudentsList';
+import StudentForm from './StudentForm';
 import {ALL_STUDENTS_ENDPOINT,
         ADD_STUDENTS_ENDPOINT,
         ALL_STUDENTS_STRING,
@@ -44,6 +45,7 @@ class Student extends React.Component{
             </Collapse>
             <a id={ADD_STUDENTS_STRING} onClick={(e) => this.handleClick(e,ADD_STUDENTS_STRING)}><h4>{ADD_STUDENTS_ENDPOINT}</h4></a>
             <Collapse isOpened={isAddStudentsOpened} >
+              <StudentForm />
               <StudentsList students={this.props.students}/>
             </Collapse>
           </div>

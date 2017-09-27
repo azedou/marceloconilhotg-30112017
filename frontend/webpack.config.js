@@ -24,7 +24,34 @@ module.exports = {
             query: {
                 presets: ['react', 'es2015', 'stage-1']
             }
-        }]
+        },{
+            test: /\.scss$/,
+            use: [
+                {
+                    loader: "style-loader"
+                },
+                {
+                    loader: "css-loader",
+                    options: {
+                        alias: {
+                            "../fonts/bootstrap": "bootstrap-sass/assets/fonts/bootstrap"
+                        }
+                    }
+                },
+                {
+                    loader: "sass-loader",
+                    options: {
+                        includePaths: [
+                            path.resolve("./node_modules/bootstrap-sass/assets/stylesheets")
+                            ]
+                    }
+                }
+                ]
+        },{
+            test: /\.css$/,
+            loader: "style-loader!css-loader"
+        }
+        ]
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
