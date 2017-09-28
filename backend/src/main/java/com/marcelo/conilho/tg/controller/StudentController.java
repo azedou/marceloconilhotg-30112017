@@ -52,7 +52,7 @@ public class StudentController {
         }
     }
 
-    @RequestMapping(value="/editDOCX", method = RequestMethod.POST)
+    @RequestMapping(value="/generateStudentCertificate", method = RequestMethod.POST)
     public HttpServletResponse getStudant(HttpServletResponse response, HttpServletRequest request,
                                           @RequestBody Student s) throws Exception {
         generateAllStudentsDocument.createPDFwithItext("Marcelo Conilho");

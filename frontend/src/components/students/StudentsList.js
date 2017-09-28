@@ -1,13 +1,9 @@
 import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import StudentGenerateCertificateButton from './StudentGenerateCertificateButton'
 
 function onRowSelect(row, isSelected, e) {
-  let rowStr = '';
-  for (const prop in row) {
-    rowStr += prop + ': "' + row[prop] + '"';
-  }
-  console.log(e);
-  console.log(`is selected: ${isSelected}, ${rowStr}`);
+  selectedStudent = row.ra;
 }
 
 function onSelectAll(isSelected, rows) {
@@ -30,19 +26,35 @@ const selectRowProp = {
         onSelect: onRowSelect,
         onSelectAll: onSelectAll
     };
+
+let selectedStudent;
     
 class StudentsList extends React.Component{
   constructor(props){
     super(props);
+    
+    this.state = {selectedStudentRa: ""};
+    this.handleClick = this.handleClick.bind(this);
+    
+  }
+  
+   handleClick(e, target) {
+    e.preventDefault();
+    console.log("ON CLICK");
+    this.setState({selectedStudentRa: selectedStudent});
+    console.log(this.state.selectedStudentRa);
   }
   
   render(){
     return(
+      <div>
           <BootstrapTable data={ this.props.students } striped hover condensed pagination selectRow={ selectRowProp } version='4'>
             <TableHeaderColumn dataField='ra' dataSort filter={ { type: 'TextFilter', delay: 1000 } } isKey >RA</TableHeaderColumn>
             <TableHeaderColumn dataField='name' dataSort filter={ { type: 'TextFilter', delay: 1000 } } >Name</TableHeaderColumn>
             <TableHeaderColumn dataField='email' dataSort filter={ { type: 'TextFilter', delay: 1000 } } >E-Mail</TableHeaderColumn>
         </BootstrapTable>
+        <button onClick={(e) => this.handleClick(e)}>CLICK ME</button>
+      </div>
     );
   }
 }

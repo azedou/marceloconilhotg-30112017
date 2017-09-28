@@ -7,7 +7,8 @@ import StudentForm from './StudentForm';
 import {ALL_STUDENTS_ENDPOINT,
         ADD_STUDENTS_ENDPOINT,
         ALL_STUDENTS_STRING,
-        ADD_STUDENTS_STRING} from './StudentsConstants'
+        ADD_STUDENTS_STRING
+} from './StudentsConstants'
 import {Collapse} from 'react-collapse';
 
 class Student extends React.Component{
