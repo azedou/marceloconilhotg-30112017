@@ -52,9 +52,8 @@ public class StudentController {
         }
     }
 
-    @RequestMapping(value="/generateStudentCertificate", method = RequestMethod.POST)
-    public HttpServletResponse getStudant(HttpServletResponse response, HttpServletRequest request,
-                                          @RequestBody Student s) throws Exception {
+    @RequestMapping(value="/generateStudentCertificate", method = RequestMethod.GET)
+    public HttpServletResponse getStudant(HttpServletResponse response, HttpServletRequest request) throws Exception {
         generateAllStudentsDocument.createPDFwithItext("Marcelo Conilho");
         byte[] contents = Files.readAllBytes(new File("TESTPDF.pdf").toPath());
         HttpHeaders headers = new HttpHeaders();
