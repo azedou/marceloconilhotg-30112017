@@ -54,9 +54,10 @@ public class StudentController {
         }
     }
 
-    @RequestMapping(value="/generateStudentCertificate", method = RequestMethod.GET)
-    public ResponseEntity<byte[]> generateStudentCertificate( HttpServletRequest request) throws Exception {
-        generateAllStudentsDocument.createPDFwithItext("Marcelo Conilho");
+    @RequestMapping(value="/generateStudentCertificate", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> generateStudentCertificate( HttpServletRequest request, String ra) throws Exception {
+        Student s = studentRepository.findOne(ra);
+        generateAllStudentsDocument.createPDFwithItext(s.getName());
         byte[] contents = Files.readAllBytes(new File("TESTPDF.pdf").toPath());
        
         HttpHeaders headers = new HttpHeaders();
