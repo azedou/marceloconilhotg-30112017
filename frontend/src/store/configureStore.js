@@ -1,8 +1,13 @@
 // ./src/store/configureStore.js
-import {createStore, compose, applyMiddleware} from 'redux';
+import {createStore, compose, combineReducers, applyMiddleware} from 'redux';
+import { reducer as reduxFormReducer } from 'redux-form';
+import rootReducer from '../reducers';
 // Import thunk middleware
 import thunk from 'redux-thunk';
-import rootReducer from '../reducers';
+
+const rootReducerCustom = combineReducers({
+  form: reduxFormReducer, // mounted under "form"
+});
 
 export default function configureStore(initialState) {
   return createStore(rootReducer, initialState,

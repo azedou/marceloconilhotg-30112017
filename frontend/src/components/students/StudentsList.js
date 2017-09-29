@@ -45,6 +45,10 @@ class StudentsList extends React.Component{
             <TableHeaderColumn dataField='ra' dataSort filter={ { type: 'TextFilter', delay: 1000 } } isKey >RA</TableHeaderColumn>
             <TableHeaderColumn dataField='name' dataSort filter={ { type: 'TextFilter', delay: 1000 } } >Name</TableHeaderColumn>
             <TableHeaderColumn dataField='email' dataSort filter={ { type: 'TextFilter', delay: 1000 } } >E-Mail</TableHeaderColumn>
+            <TableHeaderColumn dataField='course' dataSort filter={ { type: 'TextFilter', delay: 1000 } } >Course</TableHeaderColumn>
+            <TableHeaderColumn dataField='cycle' dataSort filter={ { type: 'TextFilter', delay: 1000 } } >Cycle</TableHeaderColumn>
+            <TableHeaderColumn dataField='theme' dataSort filter={ { type: 'TextFilter', delay: 1000 } } >Theme</TableHeaderColumn>
+            <TableHeaderColumn dataField='discipline' dataSort filter={ { type: 'TextFilter', delay: 1000 } } >Discipline</TableHeaderColumn>
         </BootstrapTable>
         <StudentGenerateCertificateButton ra={this.state.selectedStudentRa}/>
       </div>

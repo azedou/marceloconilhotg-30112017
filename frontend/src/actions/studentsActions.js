@@ -4,49 +4,48 @@ import Blob from 'blob';
 import fileDownload from 'react-file-download';
 import {PROD, DEV, BASE_API_URL, BASE_MOCKED_API_URL} from '../constants'
 import {ALL_STUDENTS_ENDPOINT,
-    GENERATE_STUDENT_CERTIFICATE_ENDPOINT
+    GENERATE_STUDENT_CERTIFICATE_ENDPOINT,
+    ADD_STUDENT_ENDPOINT
     } from './studentsConstants'
 import {
     LOAD_ALL_STUDENTS,
     LOAD_ALL_STUDENTS_ERROR,
     LOAD_ALL_STUDENTS_SUCCESS,
-    GENERATE_STUDENT_CERTIFICATE_SUCCESS
+    ADD_STUDENT,
+    ADD_STUDENT_ERROR,
+    ADD_STUDENT_SUCCESS
     } from './actionType';
 
 var configHeaderMock ={ headers: { 'x-api-key': '9101623f031545f3bf47a7a101387c34' } };
+
+
 // Sync Action
-export const generateStudentCertificateSuccess = (certificate) => {
+export const addStudentSuccess = () => {
   return {
-    type: 'GENERATE_STUDENT_CERTIFICATE_SUCCESS',
-    certificate
+    type: 'ADD_STUDENT'
   }
 };
+
 //Async Action
-export const generateStudentCertificate = (ra) => {
-  let url = BASE_API_URL + "/generateStudentCertificate";
+export const addStudent = (student) => {
+  let url;
+     url = BASE_API_URL + ADD_STUDENT_ENDPOINT;
   // Returns a dispatcher function
   // that dispatches an action at a later time
   return (dispatch) => {
     // Returns a promise
-    return Axios.get(url, {ra:{ra}})
+    return Axios.post(url, student)
       .then(response => {
-        console.log(response)
-        let blob = new Blob([response.data], { type:   'application/pdf' } );
-        let link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = 'Report.pdf';
-        link.click();
-        //fileDownload(response.data, 'test.pdf');
+        console.log(response);
         // Dispatch another action
         // to consume data
+        dispatch(addStudentSuccess())
       })
       .catch(error => {
-        console.log(error);
         throw(error);
       });
   };
 };
-
 
 // Sync Action
 export const fetchStudentsSuccess = (students) => {

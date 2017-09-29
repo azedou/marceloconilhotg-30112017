@@ -5,9 +5,9 @@ import * as studentsActions from '../../actions/studentsActions';
 import StudentsList from './StudentsList';
 import StudentForm from './StudentForm';
 import {ALL_STUDENTS_ENDPOINT,
-        ADD_STUDENTS_ENDPOINT,
+        ADD_STUDENT_ENDPOINT,
         ALL_STUDENTS_STRING,
-        ADD_STUDENTS_STRING
+        ADD_STUDENT_STRING
 } from './StudentsConstants'
 import {Collapse} from 'react-collapse';
 
@@ -27,7 +27,7 @@ class Student extends React.Component{
     case ALL_STUDENTS_STRING:
         this.setState({isAllStudentsOpened: !this.state.isAllStudentsOpened});
         break;
-    case ADD_STUDENTS_STRING:
+    case ADD_STUDENT_STRING:
         this.setState({isAddStudentsOpened: !this.state.isAddStudentsOpened});
         break;
     }
@@ -44,7 +44,7 @@ class Student extends React.Component{
             <Collapse isOpened={isAllStudentsOpened} >
               <StudentsList students={this.props.students}/>
             </Collapse>
-            <a id={ADD_STUDENTS_STRING} onClick={(e) => this.handleClick(e,ADD_STUDENTS_STRING)}><h4>{ADD_STUDENTS_ENDPOINT}</h4></a>
+            <a id={ADD_STUDENT_STRING} onClick={(e) => this.handleClick(e,ADD_STUDENT_STRING)}><h4>{ADD_STUDENT_ENDPOINT}</h4></a>
             <Collapse isOpened={isAddStudentsOpened} >
               <StudentForm />
               <StudentsList students={this.props.students}/>
