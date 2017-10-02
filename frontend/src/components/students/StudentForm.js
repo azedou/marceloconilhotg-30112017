@@ -9,7 +9,6 @@ class StudentForm extends React.Component{
   }
   
   submit = (value) => {
-    console.log(value);
     this.props.addStudent(value);
     this.props.fetchStudents();
   }

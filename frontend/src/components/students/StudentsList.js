@@ -10,24 +10,9 @@ class StudentsList extends React.Component{
     this.state = {selectedStudentRa: ""};
     this.handleOnSelect = this.handleOnSelect.bind(this);
   }
-  
-  
-    
-  onSelectAll(isSelected, rows) {
-    console.log(`is select all: ${isSelected}`);
-    if (isSelected) {
-      console.log('Current display and selected data: ');
-    } else {
-      console.log('unselect rows: ');
-    }
-    for (let i = 0; i < rows.length; i++){
-      console.log(rows[i].id);
-    }
-  }
-  
+
   handleOnSelect(row) {
           this.setState({selectedStudentRa: row.ra});
-          console.log(row.ra);
   }
   
   render(){
@@ -36,8 +21,7 @@ class StudentsList extends React.Component{
         clickToSelect: true,
         bgColor: 'lightblue',
         hideSelectColumn: true,
-        onSelect: this.handleOnSelect,
-        onSelectAll: this.onSelectAll
+        onSelect: this.handleOnSelect
   };
     return(
       <div>

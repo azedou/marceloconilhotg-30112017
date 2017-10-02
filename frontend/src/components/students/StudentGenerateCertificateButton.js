@@ -11,7 +11,6 @@ class StudentGenerateCertificateButton extends React.Component{
   
 
   render(){
-    console.log(this.props.ra);
     return(
       <div>
         <form method="post" action="http://marceloconilhotg2.azurewebsites.net/generateStudentCertificate">
